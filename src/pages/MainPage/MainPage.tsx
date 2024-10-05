@@ -1,11 +1,10 @@
+import { Title } from "../../components/title";
+import style from "./MainPage.module.scss";
 
-
-const MainPage = () => {
+export const MainPage = () => {
   return (
-    <div>
-      <h1>Выберите фильм</h1>
+    <div className={style.MainPage}>
+    <Title>Выберите фильм.</Title>
     </div>
-  )
-}
-
-export default MainPage
+  );
+};
