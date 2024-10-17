@@ -1,0 +1,49 @@
+:root {
+  --imgWidth: 100%;
+  --imgHeight: 100%;
+  --shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  --padding: 12px;
+}
+
+.MovieCard {
+  //background-color: aquamarine;
+  //box-shadow: var(--shadow);
+  border-radius: 10px;
+  padding: var(--padding);
+   max-width: 300px;
+  //padding: 16px;
+  //height: 380px;
+  //width: 250px;
+  //position: relative;
+  //background-size: 100% 200%;
+}
+
+.imgBlock {
+  height: 333px;
+  width: 100%;
+  //max-width: 300px;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.imgBlock img {
+  width: var(--imgWidth);
+
+  height: var(--imgHeight);
+  //border-radius: 10px;
+  //object-fit: contain;
+}
+
+.movie_info {
+  word-break: break-all;
+}
+
+.title {
+  margin-top: 12px;
+}
+
+.genre {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--secondary);
+}
