@@ -1,5 +1,8 @@
 .MainPage {
   display: grid;
-  justify-items: center;
-  //border: 1px solid black;
+  //justify-items: center;
+}
+
+.movieList {
+  margin-top: var(--margin);
 }

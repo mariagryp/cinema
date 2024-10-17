@@ -2,9 +2,9 @@ import style from "./MovieCard.module.scss";
 
 interface MovieCardProps {
   data: {
-    img: string;
-    title: string;
-    genre: string;
+    img?: string;
+    title?: string;
+    genre?: string;
   };
 }
 
@@ -14,10 +14,10 @@ export const MovieCard = (props: MovieCardProps) => {
       <div className={style.imgBlock}>
         <img src={props.data.img} alt={props.data.title} />
       </div>
-      <div>
-        <h3 className={style.title}>{props.data.title}</h3>
+      <div className={style.movie_info}>
+        <h3 className={style.title}>{props.data.title} </h3>
+        <h3 className={style.genre}>{props.data.genre} </h3>
       </div>
-      <div className={style.genre}>{props.data.genre}</div>
     </div>
   );
 };

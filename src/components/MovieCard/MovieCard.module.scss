@@ -1,65 +1,49 @@
 :root {
-  --imgMinWidth: 350px; /* Минимальная ширина картинки */
-  --imgMaxWidth: 320px; /* Максимальная ширина картинки */
-  --cardMinHeight: 320px; /* Минимальная высота карточки */
-  --imgBlockHeight: 350px; /* Высота блока с изображением */
-  --padding: 16px;
+  --imgWidth: 100%;
+  --imgHeight: 100%;
+  --shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  --padding: 12px;
 }
 
 .MovieCard {
-  text-align: left;
+  //background-color: aquamarine;
+  //box-shadow: var(--shadow);
+  border-radius: 10px;
   padding: var(--padding);
-  width: var(--imgMaxWidth); /* Ограничиваем максимальную ширину карточки */
-  min-height: var(--cardMinHeight);
-  word-wrap: break-word;
+   max-width: 300px;
+  //padding: 16px;
+  //height: 380px;
+  //width: 250px;
+  //position: relative;
+  //background-size: 100% 200%;
 }
 
 .imgBlock {
-  height: var(--imgBlockHeight);
-  margin-bottom: 12px;
-  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+  height: 333px;
+  width: 100%;
+  //max-width: 300px;
+  position: relative;
+  box-shadow: var(--shadow);
 }
 
-img {
-  width: 100%; /* Картинка заполняет весь блок по ширине */
-  height: 100%; /* Высота автоматически заполняет блок */
-  object-fit: cover; /* Картинка масштабируется, сохраняя пропорции */
+.imgBlock img {
+  width: var(--imgWidth);
+
+  height: var(--imgHeight);
+  //border-radius: 10px;
+  //object-fit: contain;
+}
+
+.movie_info {
+  word-break: break-all;
 }
 
 .title {
-  margin: 0;
-  padding-top: 12px;
+  margin-top: 12px;
 }
 
 .genre {
   margin-top: 8px;
-  font-size: 14px;
-
+  font-size: 12px;
   color: var(--secondary);
 }
-
-/* :root {
-  --imgWidth: 300px;
-}
-
-.MovieCard {
-  border: 1px solid grey;
-  padding: 16px;
-}
-
-.imgBlock {
-  width: var(--imgWidth);
-  height: calc(var(--imgWidth) / 1.5);
-  border: 1px solid black;
-  position: relative;
-  overflow: hidden;
-}
-
-img {
-  position: absolute;
-  width: 80%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
- */
