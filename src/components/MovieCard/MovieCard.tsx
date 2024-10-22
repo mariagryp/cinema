@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "./MovieCard.module.scss";
 
 interface MovieCardProps {
@@ -10,7 +11,7 @@ interface MovieCardProps {
 
 export const MovieCard = (props: MovieCardProps) => {
   return (
-    <div className={style.MovieCard}>
+    <Link to="/movie" className={style.MovieCard}>
       <div className={style.imgBlock}>
         <img src={props.data.img} alt={props.data.title} />
       </div>
@@ -18,6 +19,6 @@ export const MovieCard = (props: MovieCardProps) => {
         <h3 className={style.title}>{props.data.title} </h3>
         <h3 className={style.genre}>{props.data.genre} </h3>
       </div>
-    </div>
+    </Link>
   );
 };

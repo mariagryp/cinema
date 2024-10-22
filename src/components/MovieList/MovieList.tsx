@@ -33,7 +33,9 @@ interface MovieListProps {
 export const MovieList = ({ className }: MovieListProps) => {
   const classes = classNames(style.MovieList, className);
   function renderList(data: IMovieCard[]) {
-    return data.map((movieData) => <MovieCard data={movieData} />);
+    return data.map((movieData, index) => (
+      <MovieCard key={index} data={movieData} />
+    ));
   }
 
   return <div className={classes}>{renderList(movies)}</div>;

@@ -10,7 +10,9 @@
   //box-shadow: var(--shadow);
   border-radius: 10px;
   padding: var(--padding);
-   max-width: 300px;
+  max-width: 300px;
+  overflow: hidden;
+  color: var(--default);
   //padding: 16px;
   //height: 380px;
   //width: 250px;
