@@ -13,6 +13,5 @@
 4. React Router
 5. Redux Toolkit
 6. Redux
-   --- (npm install @reduxjs/toolkit react-redux)
-   - configure store. 
-   - 
+7. RKT Query
+8. Jason-server
