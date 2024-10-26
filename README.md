@@ -11,3 +11,8 @@
 2. SASS
 3. Classnames (A JavaScript utility for conditionally joining classNames together)
 4. React Router
+5. Redux Toolkit
+6. Redux
+   --- (npm install @reduxjs/toolkit react-redux)
+   - configure store. 
+   - 
