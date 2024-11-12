@@ -5,9 +5,9 @@ import { Header } from "../../components/Header";
 
 import style from "./MoviePage.module.scss";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store";
+
 import { Title } from "../../components/Title";
+import { useGetMovieByIdQuery } from "../../api";
 //import { Movie } from "../../types";
 
 /* const data: Movie = {
@@ -28,11 +28,7 @@ import { Title } from "../../components/Title";
 
 export const MoviePage = () => {
   const params = useParams();
-  const data = useSelector((state: RootState) => state.movies.data).find(
-    (movie) => movie.id === +params.id!
-  );
-  console.log("params", params);
-  console.log("data", data);
+  const { isLoading, data } = useGetMovieByIdQuery(params.id!);
 
   const renderShowingsTimes = (times: string[]) => {
     return times.map((time) => {
@@ -44,6 +40,7 @@ export const MoviePage = () => {
       );
     });
   };
+  if (isLoading) return <h2>Loading</h2>;
   if (!data) return <Title>No movie has been found</Title>;
 
   return (
