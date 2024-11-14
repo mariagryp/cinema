@@ -1,13 +1,14 @@
 import classNames from "classnames";
 import { Header } from "../../components/Header";
+import { Title } from "../../components/Title";
+import { SeatsSelect } from "../../components/Seats";
 //import { Movie } from "../../types";
 //import { IMovieCard } from "../../types";
 
 import style from "./MoviePage.module.scss";
 import { useParams } from "react-router-dom";
-
-import { Title } from "../../components/Title";
 import { useGetMovieByIdQuery } from "../../api";
+
 //import { Movie } from "../../types";
 
 /* const data: Movie = {
@@ -75,6 +76,7 @@ export const MoviePage = () => {
             <div className={style.ShowingsList}>
               {renderShowingsTimes(data.times)}
             </div>
+            <SeatsSelect />
           </div>
         </div>
       </div>
