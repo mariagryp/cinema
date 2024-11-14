@@ -14,7 +14,7 @@ export const SeatsSelect = () => {
           {Array(7)
             .fill(0)
             .map((item, i) => (
-              <div key={`${i} - ${Date.now()}`} className={style.left}>
+              <div key={`${i} - ${Date.now()}`} className={style.row}>
                 {i + 1}
               </div>
             ))}
@@ -23,7 +23,7 @@ export const SeatsSelect = () => {
           {Array(63)
             .fill(0)
             .map((item, i) => (
-              <div className={style.seats}>
+              <div className={style.seat}>
                 <i key={`${i} - ${Date.now()}`} className="icon-seat" />
                 <span className={style.seatNum}>{i + 1}</span>
               </div>
