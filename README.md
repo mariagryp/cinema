@@ -28,9 +28,11 @@ This command uses _concurrently_ to run both the React client and JSON server in
 
 ## Additional Tools:
 
-**Concurrently** - Used to start both the React development server and JSON server simultaneously with a single command, making it easier to develop and test the application.
+**- Concurrently** - Used to start both the React development server and JSON server simultaneously with a single command, making it easier to develop and test the application.
+
 To install _concurrently_:
+
 _- npm install concurrently --save-dev_
 
-**icon font**
+**- icon font**
  _- https://icomoon.io/_
