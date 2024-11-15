@@ -1,11 +1,12 @@
 .SeatsSelect {
-  --display-size: 380px;
-  --gap: 14px;
-  --size: 26px;
+  --display-size: var(--seats-display-size);
+  --gap: var(--seats-gap);
+  --size: var(--seats-size);
   display: grid;
   gap: calc(var(--gap) * 2);
 
   justify-items: center;
+  padding-top: 50px;
 }
 
 .display {
@@ -14,7 +15,7 @@
   text-align: center;
   font-size: 18px;
   font-weight: 600;
-  color: var( --primary);
+  color: var(--primary);
 
   i {
     font-size: var(--display-size);
@@ -23,7 +24,7 @@
     left: 50%;
     transform: translateX(-50%);
 
-    text-shadow: 0 4px 12px var( --statusSelected);
+    text-shadow: 0 4px 12px var(--statusSelected);
     pointer-events: none;
   }
 }
@@ -51,24 +52,6 @@
   font-size: var(--size);
 }
 
-.seat {
-  position: relative;
-  color: var(--accent);
-
-  i {
-    text-shadow: 0 2px 2px rgb(0, 0, 0, 0.4);
-  }
-}
-.seatNum {
-  position: absolute;
-  top: 75%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--light);
-  font-size: calc(var(--size) * 0.4);
-  font-weight: 700;
-}
-
 .info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -82,7 +65,7 @@
   font-size: 16px;
   font-weight: 600;
 
-  i{
+  i {
     font-size: 12px;
   }
 }

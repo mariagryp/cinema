@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import style from "./SeatsSelect.module.scss";
+import { Seat } from "./components/Seat";
 
 export const SeatsSelect = () => {
   return (
@@ -22,12 +23,36 @@ export const SeatsSelect = () => {
         <div className={style.seats}>
           {Array(63)
             .fill(0)
-            .map((item, i) => (
-              <div className={style.seat}>
-                <i key={`${i} - ${Date.now()}`} className="icon-seat" />
-                <span className={style.seatNum}>{i + 1}</span>
-              </div>
-            ))}
+            .map((item, i) => {
+              const classes = classNames("icon-seat", {
+                [style.available]: i !== 3 && i !== 5,
+                [style.reserved]: i === 3,
+                [style.selected]: i === 5,
+              });
+
+              const data = {
+                id: i,
+                num: i,
+                status: i !== 3 ? "available" : "reserved",
+              };
+              /* 
+              const emptyCells = [
+                0, 1, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 25, 26,
+              ]; */
+
+              const emptyCells = [
+                2, 3, 4, 5, 6, 12, 13, 14,  18, 19, 25, 26
+              ];
+              return emptyCells.includes(i) ? (
+                <div />
+              ) : (
+                <Seat
+                  key={`${i}=${Date.now()}`}
+                  className={classes}
+                  data={data}
+                />
+              );
+            })}
         </div>
       </div>
       {/* info */}
