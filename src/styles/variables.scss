@@ -1,10 +1,21 @@
 :root {
   /* colors */
+  --primary: rgb(16, 16, 17);
+  --accent: rgb(58, 172, 148);
   --secondary: rgb(86, 85, 85);
   --linkColor: rgba(11, 76, 126, 0.68);
   --default: rgba(7, 7, 7, 0.864);
   --light: rgba(231, 247, 246, 0.864);
 
+  --statusAvailable: var(--accent);
+  --statusReserved: red;
+  --statusSelected: var(--primary);
+
   /* sizes */
   --margin: 12px;
+
+  /* Seats Board */
+  --seats-display-size: 380px;
+  --seats-gap: 14px;
+  --seats-size: 26px;
 }

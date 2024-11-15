@@ -1,0 +1,80 @@
+.SeatsSelect {
+  --display-size: var(--seats-display-size);
+  --gap: var(--seats-gap);
+  --size: var(--seats-size);
+  display: grid;
+  gap: calc(var(--gap) * 2);
+
+  justify-items: center;
+  padding-top: 50px;
+}
+
+.display {
+  position: relative;
+  padding-top: 30px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary);
+
+  i {
+    font-size: var(--display-size);
+    position: absolute;
+    top: calc(var(--display-size) / -2.3);
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-shadow: 0 4px 12px var(--statusSelected);
+    pointer-events: none;
+  }
+}
+
+.hall {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: calc(var(--gap) / 2);
+  padding-right: calc(var(--size) + var(--gap) / 2);
+}
+.left,
+.seats {
+  display: grid;
+  gap: var(--gap);
+  grid-auto-rows: var(--size);
+}
+
+.row {
+  display: grid;
+  align-items: end;
+  justify-items: center;
+}
+.seats {
+  grid-template-columns: repeat(9, var(--size));
+  font-size: var(--size);
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  justify-items: center;
+}
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--gap) / 2);
+  font-size: 16px;
+  font-weight: 600;
+
+  i {
+    font-size: 12px;
+  }
+}
+.available {
+  color: var(--accent);
+}
+.reserved {
+  color: var(--statusReserved);
+}
+.selected {
+  color: var(--statusSelected);
+}

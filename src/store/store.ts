@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { moviesReducer } from "../slices";
+import { moviesReducer, orderReducer } from "../slices";
 import { rtkApi } from "../api/rtkApi";
+
 
 export const store = configureStore({
   reducer: {
     movies: moviesReducer,
+    order: orderReducer,
     // Add the generated reducer as a specific top-level slice
     [rtkApi.reducerPath]: rtkApi.reducer,
   },
