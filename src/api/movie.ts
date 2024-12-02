@@ -1,7 +1,7 @@
 import { Movie } from "../types";
 import { rtkApi } from "./rtkApi";
 
-const movieApi = rtkApi.injectEndpoints({
+const moviesApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
     getAllMovies: build.query<Movie[], void>({
       query: () => "movies",
@@ -17,4 +17,4 @@ const movieApi = rtkApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useGetAllMoviesQuery, useGetMovieByIdQuery } = movieApi;
+export const { useGetAllMoviesQuery, useGetMovieByIdQuery } = moviesApi;

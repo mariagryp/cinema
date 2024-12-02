@@ -8,7 +8,7 @@
   width: 100%;
   margin-bottom: var(--margin);
   overflow: hidden;
-  
+
   //height: 30vw;
   //aspect-ration: 2/3;
 
@@ -27,19 +27,6 @@
   align-content: start;
 }
 
-.info {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: calc(var(--margin) / 2) var(--margin);
-  align-content: start;
-
-  .infoLabel {
-    color: var(--secondary);
-    font-weight: 400;
-    opacity: 0.7;
-  }
-}
-
 .showings {
   display: grid;
   gap: var(--margin);
@@ -51,16 +38,6 @@
 .ShowingsList {
   display: grid;
   grid-template-columns: repeat(auto-fit, 70px);
-  gap: 2px;
-}
-.showingsTime {
-  color: var(--light);
-  background-color: var(--secondary);
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  padding: 2px 4px;
-  border-radius: 4px;
-
-  
+  gap: 4px;
+  justify-content: center;
 }
