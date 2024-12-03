@@ -1,4 +1,4 @@
-import { Country, Cast } from "./index";
+import { Country, Cast, Time } from "./index";
 
 export interface IMovieCard {
   id: number;
@@ -9,11 +9,10 @@ export interface IMovieCard {
 
 export interface Movie extends IMovieCard {
   description: string;
-  times: string[];
+  times: Time[];
   duration: number;
   country: Country;
   year: number;
   cast: Cast[];
-  release: string;
   premier: string;
 }
