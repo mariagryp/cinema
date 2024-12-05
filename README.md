@@ -36,3 +36,6 @@ _- npm install concurrently --save-dev_
 
 2. **icon font**
    _- https://icomoon.io/_
+
+3. **nodemon**  
+   _-npm install --save-dev nodemon_

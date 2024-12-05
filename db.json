@@ -11,7 +11,7 @@
       "country": "Germany",
       "year": 2024,
       "cast": ["Another Name", "First Name", "Next Name", "Third Name"],
-      "release": "3th Sep 2034",
+      "release": "3rd Sep 2024",
       "premier": "8th Nov 2034"
     },
     {
@@ -25,10 +25,9 @@
       "country": "Germany",
       "year": 2024,
       "cast": ["Another Name", "First Name", "Next Name", "Third Name"],
-      "release": "3th Sep 2034",
+      "release": "3rd Sep 2024",
       "premier": "8th Nov 2034"
     },
-
     {
       "id": 3,
       "img": "https://www.myvue.com/-/jssmedia/vuecinemas/img/import/851b9fd2-ced6-4571-bd3b-44640146d51c_beetlejuice-beetlejuice_posters_main-one-sheet_712px.jpg?mw=450&rev=00907a7c148741a29539df93ebc3b952",
@@ -40,10 +39,9 @@
       "country": "USA",
       "year": 2024,
       "cast": ["Another Name", "First Name", "Next Name", "Third Name"],
-      "release": "3th Sep 2034",
+      "release": "3rd Sep 2034",
       "premier": "8th Nov 2034"
     },
-
     {
       "id": 4,
       "img": "https://www.myvue.com/-/jssmedia/vuecinemas/img/import/5f80eae9-b062-42b2-9b09-1a84a3eb9822_transformers-one_posters_transformers-one-out-now-1-sheet_712px.jpg?mw=450&rev=2883917e4fd046fc9463122873f0e531",
@@ -55,8 +53,67 @@
       "country": "USA",
       "year": 2024,
       "cast": ["Another Name", "First Name", "Next Name", "Third Name"],
-      "release": "3th Sep 2034",
+      "release": "3rd Sep 2034",
       "premier": "8th Nov 2034"
+    }
+  ],
+
+  "sessions": [
+    {
+      "id": 1,
+      "time": "10:00",
+      "movieId": "1"
+    },
+    {
+      "id": 2,
+      "time": "12:00",
+      "movieId": "1"
+    },
+    {
+      "id": 3,
+      "time": "14:00",
+      "movieId": "1"
+    },
+    {
+      "id": 4,
+      "time": "16:00",
+      "movieId": "1"
+    },
+    {
+      "id": 5,
+      "time": "20:00",
+      "movieId": "1"
+    },
+    {
+      "id": 6,
+      "time": "22:00",
+      "movieId": "1"
+    },
+    {
+      "id": 7,
+      "time": "13:00",
+      "movieId": "2"
+    },
+    {
+      "id": 8,
+      "time": "15:00",
+      "movieId": "2"
+    }
+  ],
+  "seats": [
+    {
+      "id": 1,
+      "sessionId": "2",
+      "bought_seats": [
+        {
+          "row": 2,
+          "seat": 3
+        },
+        {
+          "row": 2,
+          "seat": 4
+        }
+      ]
     }
   ]
 }

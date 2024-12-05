@@ -1,4 +1,5 @@
 import { Country, Cast, Time } from "./index";
+import { Session } from "./sessions";
 
 export interface IMovieCard {
   id: number;
@@ -16,4 +17,8 @@ export interface Movie extends IMovieCard {
   cast: Cast[];
   release: string;
   premier: string;
+}
+
+export interface MovieSessions extends Movie {
+  sessions: Session[];
 }

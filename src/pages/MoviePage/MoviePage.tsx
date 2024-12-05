@@ -9,6 +9,7 @@ import { SessionTime } from "../../components/SessionTime";
 import { InfoTable } from "../../components/InfoTable";
 
 import { helpers } from "./helpers";
+import { Session } from "../../types";
 
 //import { Movie } from "../../types";
 
@@ -33,10 +34,10 @@ export const MoviePage = () => {
   const { isLoading, data } = useGetMovieByIdQuery(params.id!);
   console.log("data", data);
 
-  const renderShowingsTimes = (times: string[]) => {
-    return times.map((time, i) => {
+  const renderShowingsTimes = (sessions: Session[]) => {
+    return sessions.map(({ id, time }) => {
       /* const classes = classNames(style.showingsTime, "hover"); */
-      return <SessionTime key={`${i} - ${Date.now()}`} id={i} time={time} />;
+      return <SessionTime key={id} id={id} time={time} />;
     });
   };
 
@@ -60,7 +61,7 @@ export const MoviePage = () => {
           <div className={style.showings}>
             <h3 className={style.subtitle}>Showings: </h3>
             <div className={style.ShowingsList}>
-              {renderShowingsTimes(data.times)}
+              {renderShowingsTimes(data.sessions)}
             </div>
           </div>
         </div>

@@ -2,12 +2,13 @@ import { useSelector } from "react-redux";
 import { Header } from "../../components/Header";
 import { InfoTable } from "../../components/InfoTable";
 import { SeatsSelect } from "../../components/Seats";
-import style from "./TicketPage.module.scss";
+import style from "./SessionPage.module.scss";
 import { RootState } from "../../store";
 import { OrderState } from "../../slices";
 import classNames from "classnames";
+import { useParams } from "react-router-dom";
 
-export const TicketPage = () => {
+export const SessionPage = () => {
   const { order } = useSelector((state: RootState) => state);
   const price = 119;
   const seatsCount = order.seats.length;
@@ -34,7 +35,7 @@ export const TicketPage = () => {
   };
 
   return (
-    <div className={style.TicketPage}>
+    <div className={style.SessionPage}>
       <Header title="Buy a ticket" />
       <div className={style.content}>
         <SeatsSelect />
