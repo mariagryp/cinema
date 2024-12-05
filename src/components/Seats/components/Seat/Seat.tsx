@@ -7,14 +7,14 @@ import { addSeat, deleteSeat } from "../../../../slices";
 interface SeatProps {
   className: string;
   data: {
-    id: number;
-    num: number;
+    row: number;
+    seat: number;
     status: string /* "available" | "reserved" | "selected" */;
   };
 }
 
 export const Seat = ({ data }: SeatProps) => {
-  const { id, status: initStatus, num } = data;
+  const { row, status: initStatus, seat } = data;
   const [status, setStatus] = useState(initStatus);
   const classes = classNames(style.Seat, style[status]);
   const dispatch = useDispatch();
@@ -26,16 +26,16 @@ export const Seat = ({ data }: SeatProps) => {
       setStatus(newStatus);
 
       if (isSelected) {
-        dispatch(addSeat(id))
+        dispatch(addSeat({ row, seat }));
       } else {
-        dispatch(deleteSeat(id))
+        dispatch(deleteSeat({ row, seat }));
       }
     }
   };
   return (
     <div className={classes} onClick={onClick}>
       <i className="icon-seat" />
-      <span className={style.seatNum}>{num}</span>
+      <span className={style.seatNum}>{seat}</span>
     </div>
   );
 };

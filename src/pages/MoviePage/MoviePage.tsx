@@ -1,13 +1,14 @@
-import classNames from "classnames";
 import { Header } from "../../components/Header";
 import { Title } from "../../components/Title";
-import { SeatsSelect } from "../../components/Seats";
 //import { Movie } from "../../types";
 //import { IMovieCard } from "../../types";
-
 import style from "./MoviePage.module.scss";
 import { useParams } from "react-router-dom";
 import { useGetMovieByIdQuery } from "../../api";
+import { SessionTime } from "../../components/SessionTime";
+import { InfoTable } from "../../components/InfoTable";
+
+import { helpers } from "./helpers";
 
 //import { Movie } from "../../types";
 
@@ -30,17 +31,15 @@ import { useGetMovieByIdQuery } from "../../api";
 export const MoviePage = () => {
   const params = useParams();
   const { isLoading, data } = useGetMovieByIdQuery(params.id!);
+  console.log("data", data);
 
   const renderShowingsTimes = (times: string[]) => {
-    return times.map((time) => {
-      const classes = classNames(style.showingsTime, "hover");
-      return (
-        <div key={time} className={classes}>
-          {time}
-        </div>
-      );
+    return times.map((time, i) => {
+      /* const classes = classNames(style.showingsTime, "hover"); */
+      return <SessionTime key={`${i} - ${Date.now()}`} id={i} time={time} />;
     });
   };
+
   if (isLoading) return <h2>Loading</h2>;
   if (!data) return <Title>No movie has been found</Title>;
 
@@ -56,27 +55,13 @@ export const MoviePage = () => {
         </div>
         <div className={style.right}>
           <div className={style.info}>
-            <div className={style.infoLabel}>Release Date: </div>
-            <div className={style.infoValue}>{data.release}</div>
-
-            <div className={style.infoLabel}>Cast: </div>
-            <div className={style.infoValue}>{data.cast.join(", ")}</div>
-
-            <div className={style.infoLabel}>Run Time: </div>
-            <div className={style.infoValue}>{data.duration}</div>
-
-            <div className={style.infoLabel}>Country: </div>
-            <div className={style.infoValue}>{data.country}</div>
-
-            <div className={style.infoLabel}>Premier: </div>
-            <div className={style.infoValue}>{data.premier}</div>
+            <InfoTable data={helpers.getInfoData(data)} />
           </div>
           <div className={style.showings}>
             <h3 className={style.subtitle}>Showings: </h3>
             <div className={style.ShowingsList}>
               {renderShowingsTimes(data.times)}
             </div>
-            <SeatsSelect />
           </div>
         </div>
       </div>

@@ -3,8 +3,8 @@ import style from "./SeatsSelect.module.scss";
 import { Seat } from "./components/Seat";
 
 export const SeatsSelect = () => {
-  let seatId = 1;
-  let resetIdx = 0;
+  let seat = 1;
+  let row = 1;
   let resetNums = [4, 6, 5];
   const emptyCells = [2, 3, 4, 5, 6, 12, 13, 14, 18, 19, 25, 26];
 
@@ -32,28 +32,30 @@ export const SeatsSelect = () => {
             .fill(0)
             .map((item, i) => {
               if (emptyCells.includes(i)) {
-                return <div />;
+                return <div key={`${i}-{Math.random()}`} />;
               } else {
                 const classes = classNames("icon-seat", {
-                  [style.available]: seatId !== 3 && seatId !== 5,
-                  [style.reserved]: seatId === 3,
-                  [style.selected]: seatId === 5,
+                  [style.available]: seat !== 3 && seat !== 5,
+                  [style.reserved]: seat === 3,
+                  [style.selected]: seat === 5,
                 });
 
                 const data = {
-                  id: seatId,
-                  num: seatId,
-                  status: seatId !== 3 ? "available" : "reserved",
+                  id: seat,
+                  row,
+                  seat,
+                  status: seat !== 3 ? "available" : "reserved",
                 };
-                if (seatId === resetNums[resetIdx] || seatId === 9) {
-                  seatId = 1;
-                  resetIdx++;
+                if (seat === resetNums[row - 1] || seat === 9) {
+                  seat = 1;
+                  row++;
+                  data.row = row;
                 } else {
-                  seatId++;
+                  seat++;
                 }
                 return (
                   <Seat
-                    key={`${seatId}=${Date.now()}`}
+                    key={`${row}=${seat}`}
                     className={classes}
                     data={data}
                   />
