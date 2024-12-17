@@ -9,7 +9,10 @@ interface SessionTimeProps {
 
 export const SessionTime = ({ id, time }: SessionTimeProps) => {
   return (
-    <Link to={`/session/${id}`} className={classNames(style.SessionTime, "hover")}>
+    <Link
+      to={`/sessions/${id}`}
+      className={classNames(style.SessionTime, "hover")}
+    >
       {time}
     </Link>
   );

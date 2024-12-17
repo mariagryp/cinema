@@ -6,7 +6,7 @@ import style from "./SessionPage.module.scss";
 import { RootState } from "../../store";
 import { OrderState } from "../../slices";
 import classNames from "classnames";
-import { useParams } from "react-router-dom";
+
 
 export const SessionPage = () => {
   const { order } = useSelector((state: RootState) => state);
