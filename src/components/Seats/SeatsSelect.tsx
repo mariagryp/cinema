@@ -1,15 +1,15 @@
 import classNames from "classnames";
 import style from "./SeatsSelect.module.scss";
 import { Seat } from "./components/Seat";
-import { useParams } from "react-router-dom";
-import { useGetSessionByIdQuery } from "../../api";
-import { Title } from "../Title";
 import { Seat as ISeat } from "../../types";
 
-export const SeatsSelect = () => {
-  const params = useParams();
-  console.log("params", params);
-  const { isLoading, data } = useGetSessionByIdQuery(params.id!);
+type BoughtSeats = ISeat[] | undefined;
+
+interface SeatsSelectProps {
+  boughtSeats: BoughtSeats;
+}
+
+export const SeatsSelect = ({ boughtSeats }: SeatsSelectProps) => {
   let seat = 1;
   let row = 1;
   let resetNums = [4, 6, 5];
@@ -18,14 +18,13 @@ export const SeatsSelect = () => {
   const isReservedSeat = (
     row: number,
     seat: number,
-    boughtSeats: ISeat[] | undefined
+    boughtSeats: BoughtSeats
   ) => {
     return boughtSeats?.some(
       (boughtSeat) => boughtSeat.row === row && boughtSeat.seat === seat
     );
   };
 
-  if (isLoading) return <Title center>Loading empty seats ...</Title>;
   return (
     <div className={style.SeatsSelect}>
       {/* display block */}
@@ -56,7 +55,7 @@ export const SeatsSelect = () => {
                   id: seat,
                   row,
                   seat,
-                  status: isReservedSeat(row, seat, data?.seat?.bought_seats)
+                  status: isReservedSeat(row, seat, boughtSeats)
                     ? "reserved"
                     : "available",
                 };

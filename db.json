@@ -3,14 +3,23 @@
     {
       "id": 1,
       "img": "https://www.myvue.com/-/jssmedia/vuecinemas/img/import/a808f819-72cc-4749-be0d-7a4f56ec2d1d_the-wild-robot_posters_wrb_intl_tree_digital_1sheet_uk1_712px.jpg?mw=450&rev=815b46e4dc3b4e3282fb86d436388f85",
-      "title": "Movie Name",
+      "title": "Movie Name 1",
       "genre": "Movie Genre ",
       "description": "After a villain kidnaps Santa from the North Pole, an E.L.F operative must partner with the world’s most accomplished tracker to find Santa and save Christmas.",
-      "times": ["10:00", "12:00", "14:00"],
+      "times": [
+        "10:00",
+        "12:00",
+        "14:00"
+      ],
       "duration": 120,
       "country": "Germany",
       "year": 2024,
-      "cast": ["Another Name", "First Name", "Next Name", "Third Name"],
+      "cast": [
+        "Another Name",
+        "First Name",
+        "Next Name",
+        "Third Name"
+      ],
       "release": "3rd Sep 2024",
       "premier": "8th Nov 2034"
     },
@@ -20,11 +29,20 @@
       "title": "Movie Name 2",
       "genre": "Movie Genre 2",
       "description": "After a villain kidnaps Santa from the North Pole, an E.L.F operative must partner with the world’s most accomplished tracker to find Santa and save Christmas.",
-      "times": ["11:00", "13:00", "15:00"],
+      "times": [
+        "11:00",
+        "13:00",
+        "15:00"
+      ],
       "duration": 120,
       "country": "Germany",
       "year": 2024,
-      "cast": ["Another Name", "First Name", "Next Name", "Third Name"],
+      "cast": [
+        "Another Name",
+        "First Name",
+        "Next Name",
+        "Third Name"
+      ],
       "release": "3rd Sep 2024",
       "premier": "8th Nov 2034"
     },
@@ -34,11 +52,20 @@
       "title": "Movie Name 3",
       "genre": "Movie Genre 3",
       "description": "After a villain kidnaps Santa from the North Pole, an E.L.F operative must partner with the world’s most accomplished tracker to find Santa and save Christmas.",
-      "times": ["16:00", "18:00", "20:00"],
+      "times": [
+        "16:00",
+        "18:00",
+        "20:00"
+      ],
       "duration": 120,
       "country": "USA",
       "year": 2024,
-      "cast": ["Another Name", "First Name", "Next Name", "Third Name"],
+      "cast": [
+        "Another Name",
+        "First Name",
+        "Next Name",
+        "Third Name"
+      ],
       "release": "3rd Sep 2034",
       "premier": "8th Nov 2034"
     },
@@ -48,16 +75,24 @@
       "title": "Name 4",
       "genre": "Movie Genre 4",
       "description": "After a villain kidnaps Santa from the North Pole, an E.L.F operative must partner with the world’s most accomplished tracker to find Santa and save Christmas.",
-      "times": ["10:00", "15:00", "21:00"],
+      "times": [
+        "10:00",
+        "15:00",
+        "21:00"
+      ],
       "duration": 120,
       "country": "USA",
       "year": 2024,
-      "cast": ["Another Name", "First Name", "Next Name", "Third Name"],
+      "cast": [
+        "Another Name",
+        "First Name",
+        "Next Name",
+        "Third Name"
+      ],
       "release": "3rd Sep 2034",
       "premier": "8th Nov 2034"
     }
   ],
-
   "sessions": [
     {
       "id": 1,
@@ -113,14 +148,31 @@
       "id": 1,
       "bought_seats": [
         {
-          "row": 2,
-          "seat": 2
-        },
-        {
-          "row": 2,
+          "row": 1,
           "seat": 3
         }
       ]
+    },
+    {
+      "id": 2,
+      "bought_seats": [
+        {
+          "row": 3,
+          "seat": 5
+        },
+        {
+          "row": 4,
+          "seat": 7
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "bought_seats": []
+    },
+    {
+      "id": 4,
+      "bought_seats": []
     }
   ]
 }

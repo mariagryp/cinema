@@ -3,6 +3,7 @@ import { Seat } from "../types";
 
 export interface OrderState {
   seats: Seat[];
+  sessionId?: number; // ? = необязательно, когда нужно, мы его добавляем
 }
 
 const initialState: OrderState = {
