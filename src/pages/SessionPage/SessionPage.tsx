@@ -11,10 +11,13 @@ import { useGetMovieByIdQuery, useGetSessionByIdQuery } from "../../api";
 import { Title } from "../../components/Title";
 import { useUpdateSeatsByIdMutation } from "../../api/order";
 import { OrderData } from "../../types";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const SessionPage = () => {
+  /* link to img  */
+  const imgRef = useRef<HTMLImageElement>(null);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [qrCode, setQrCode] = useState("");
   const params = useParams();
   const { isLoading, data: sessionData } = useGetSessionByIdQuery(
     params.sessionId!
@@ -37,9 +40,29 @@ export const SessionPage = () => {
   /*  console.log("isSuccess", isSuccess); */
   useEffect(() => {
     if (isSuccess) {
-      //generera qr code
+      const dataForQrCode = encodeURI(
+        JSON.stringify({
+          movie: movieData?.title,
+          time: sessionData?.time,
+          sessionId: sessionData?.id,
+          seats: order.seats,
+          total_price: totalPrice,
+        })
+      );
+      console.log(dataForQrCode);
+      setQrCode(
+        `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${dataForQrCode}`
+      );
     }
   }, [isSuccess]);
+  useEffect(() => {
+    if (qrCode) {
+      //generera qr code
+      if (imgRef.current) {
+        imgRef.current.src = qrCode;
+      }
+    }
+  }, [qrCode]);
 
   if (isLoading) return <Title center>Loading empty seats ...</Title>;
 
@@ -93,23 +116,32 @@ export const SessionPage = () => {
             <div className={style.info}>
               <h3 className={style.title}>Your order : </h3>
               <InfoTable data={getOrderInfo(order)} />
-              <InfoTable data={getPriceInfo(seatsCount, price)} />
+              <div className={style.info}>
+                <InfoTable data={getPriceInfo(seatsCount, price)} />
+              </div>
               <div className={style.priceInfo}>
                 <span className={style.priceLabel}>Total order : </span>
                 <strong>{totalPrice} SEK</strong>
               </div>
 
-              <div
-                className={classNames(style.buyBtn, "hover", {
-                  [style.disable]: isDisabled,
-                })}
-                onClick={handleClick}
-              >
-                Buy
-              </div>
+              {!qrCode && (
+                <div
+                  className={classNames(style.buyBtn, "hover", {
+                    [style.disable]: isDisabled,
+                  })}
+                  onClick={handleClick}
+                >
+                  Buy
+                </div>
+              )}
             </div>
           )}
           {!seatsCount && <h3 className={style.title}>Choose your seats: </h3>}
+          {qrCode && (
+            <div className={style.qr}>
+              <img ref={imgRef} src="" alt="QR Code" />
+            </div>
+          )}
 
           {/* *** */}
           {/*       <div className={style.info}>
