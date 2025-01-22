@@ -1,12 +1,29 @@
 import classNames from "classnames";
 import style from "./SeatsSelect.module.scss";
 import { Seat } from "./components/Seat";
+import { Seat as ISeat } from "../../types";
 
-export const SeatsSelect = () => {
+type BoughtSeats = ISeat[] | undefined;
+
+interface SeatsSelectProps {
+  boughtSeats: BoughtSeats;
+}
+
+export const SeatsSelect = ({ boughtSeats }: SeatsSelectProps) => {
   let seat = 1;
   let row = 1;
   let resetNums = [4, 6, 5];
   const emptyCells = [2, 3, 4, 5, 6, 12, 13, 14, 18, 19, 25, 26];
+
+  const isReservedSeat = (
+    row: number,
+    seat: number,
+    boughtSeats: BoughtSeats
+  ) => {
+    return boughtSeats?.some(
+      (boughtSeat) => boughtSeat.row === row && boughtSeat.seat === seat
+    );
+  };
 
   return (
     <div className={style.SeatsSelect}>
@@ -34,39 +51,35 @@ export const SeatsSelect = () => {
               if (emptyCells.includes(i)) {
                 return <div key={`${i}-{Math.random()}`} />;
               } else {
-                const classes = classNames("icon-seat", {
-                  [style.available]: seat !== 3 && seat !== 5,
-                  [style.reserved]: seat === 3,
-                  [style.selected]: seat === 5,
-                });
-
-                const data = {
+                const seatData = {
                   id: seat,
                   row,
                   seat,
-                  status: seat !== 3 ? "available" : "reserved",
+                  status: isReservedSeat(row, seat, boughtSeats)
+                    ? "reserved"
+                    : "available",
                 };
+
+                // Сохраняем текущие данные о месте
+                const currentSeat = seat;
+                const currentRow = row;
+
                 if (seat === resetNums[row - 1] || seat === 9) {
                   seat = 1;
                   row++;
-                  data.row = row;
+                  //seatData.row = row; // !!! Ошибка: здесь row уже изменен и поэтому ошибка в рядах
                 } else {
                   seat++;
                 }
                 return (
-                  <Seat
-                    key={`${row}=${seat}`}
-                    className={classes}
-                    data={data}
-                  />
+                  <Seat key={`${currentRow}-${currentSeat}`} data={seatData} />
                 );
               }
 
               /* 
               const emptyCells = [
                 0, 1, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 25, 26,
-              ]; */
-
+              ]; *
               /*  const emptyCells = [2, 3, 4, 5, 6, 12, 13, 14, 18, 19, 25, 26];
               return emptyCells.includes(i) ? (
                 <div />

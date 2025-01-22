@@ -1,4 +1,4 @@
-.TicketPage {
+.SessionPage {
   display: grid;
   justify-content: center;
 }
@@ -30,4 +30,9 @@
   color: var(--light);
   border-radius: 5px;
   margin-top: var(--margin);
+}
+
+.disable {
+  pointer-events: none;
+  opacity: 0.5;
 }
